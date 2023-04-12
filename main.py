@@ -20,14 +20,14 @@ palette = [blue, purple, lavender, pinkish]
 def allRandom(palette):
     for r in range(0, size):
         for c in range(0, size):
-            if opensimplex.noise2(r, c)*10 > 0:
+            if opensimplex.noise2(r, c)*10 <= 0:
                 image[r][c] = palette[0]
-            if opensimplex.noise2(r, c) * 10 > 0:
+            if opensimplex.noise2(r, c)*10 > 0:
                 image[r][c] = palette[1]
-                if opensimplex.noise2(r, c) * 10 > 1:
-                    image[r][c] = palette[2]
-                    if opensimplex.noise2(r, c) * 10 > 2:
-                        image[r][c] = palette[3]
+            if opensimplex.noise2(r, c) * 10 > 1:
+                image[r][c] = palette[2]
+            if opensimplex.noise2(r, c) * 10 > 2:
+                image[r][c] = palette[3]
 
     img = Image.fromarray(image, 'RGB')
     img.show()
